@@ -1,0 +1,151 @@
+@import "./color.scss";
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+
+// 状态色
+$--color-status-blue:$-color-geekBlue--6;
+$--color-status-green:$-color-lifeGreen--6;
+$--color-status-red:$-color-fightingRed--6;
+$--color-status-gray:$-color-colorless--6;
+$--color-status-heavy-gray:$-color-colorless--7;
+
+// 主题色
+$--color-primary: $-color-geekBlue--6;
+
+// 常用色
+$--color-black: $-color-colorless--10;
+$--color-white: $-color-colorless--1;
+$--color-success: $-color-lifeGreen--6;
+$--color-less: $-color-fightingRed--6;
+$--color-gray:$-color-colorless--7;
+$--color-gray-1: $-color-colorless--5;
+$--color-yellow-1:$-color-vitalityYellow--6;
+$--color-text: $-color-colorless--8;
+$--background-color: $-color-colorless--2;
+$--border-color:$-color-colorless--4;
+$--border-light-color:$-color-colorless--3;
+
+$--background-color-orange--1:$--color-orange--1;
+$--color-orange:$--color-orange--6;
+
+// 提示
+$--borderColor-info: $-color-geekBlue--3;
+$--bgColor-info: $-color-geekBlue--1;
+
+// 成功
+$--borderColor-success: $-color-lifeGreen--2;
+$--bgColor-success: $-color-lifeGreen--1;
+
+// 报错
+$--borderColor-error: $-color-fightingRed--2;
+$--bgColor-error: $-color-fightingRed--1;
+
+// 警告
+$--borderColor-warn: $-color-vitalityYellow--2;
+$--bgColor-warn: $-color-vitalityYellow--1;
+
+// 响应式尺寸
+$--sm: 768px !default;
+$--md: 992px !default;
+$--lg: 1200px !default;
+$--xl: 1920px !default;
+
+// 分割点匹配
+$breakPoints:('sm':(min-width:$--sm - 1),
+  'md':(max-width:$--md),
+  'lg':(max-width: $--lg),
+  'xl':(max-width:$--xl)); // button 组件
+
+
+// 字体
+$--font-size-1: 12px;
+$--font-size-2: 14px;
+$--font-size-3: 16px;
+$--font-size-4: 20px;
+$--font-size-5: 24px;
+$--font-size-6: 30px;
+$--font-size-7: 38px;
+
+$--font-weight:600;
+
+$-button-border-color-default:$--color-primary;
+$-button-color-default: $--color-primary;
+// 按钮内边距
+$--button-large-padding-vertical:12px !default;
+$--button-large-padding-horizontal:16px !default;
+
+$--button-medium-padding-vertical:9px !default;
+$--button-medium-padding-horizontal:16px !default;
+
+$--button-small-padding-vertical:5px !default;
+$--button-small-padding-horizontal:8px !default;
+
+// 圆角（大中小都一样）
+$--button-border-radius:2px;
+
+// 颜色部分
+
+// 字体颜色
+$--button-primary-font-color: $-color-colorless--1 !default;
+$--button-primary-font-color-hover: $-color-colorless--1 !default;
+$--button-primary-font-color-active: $-color-colorless--1 !default;
+$--button-secondary-font-color: $-color-geekBlue--5 !default;
+$--button-secondary-font-color-hover: $-color-geekBlue--5 !default;
+$--button-secondary-font-color-active: $-color-geekBlue--7 !default;
+$--button-normal-font-color: $-color-colorless--8 !default;
+$--button-normal-font-color-hover: $-color-geekBlue--5 !default;
+$--button-normal-font-color-active: $-color-geekBlue--7 !default;
+$--button-dashed-font-color: $-color-colorless--8 !default;
+$--button-disabled-font-color: $-color-colorless--6 !default;
+
+$--button-danger-font-color:$-color-fightingRed--6 !default;
+$--button-danger-font-color-hover:$-color-colorless--1 !default;
+$--button-danger-font-color-active: $-color-colorless--1 !default;
+$--button-link-font-color:$-color-geekBlue--5 !default;
+$--button-link-font-color-hover:$-color-geekBlue--5 !default;
+$--button-link-font-color-active:$-color-geekBlue--7 !default;
+
+// 背景色
+$--button-primary-background-color: $-color-geekBlue--6 !default;
+$--button-primary-background-color-hover: $-color-geekBlue--5 !default;
+$--button-primary-background-color-active:$-color-geekBlue--7 !default;
+$--button-secondary-background-color: $-color-colorless--1 !default;
+$--button-secondary-background-color-hover: $-color-geekBlue--1 !default;
+$--button-secondary-background-color-active:$-color-geekBlue--2 !default;
+$--button-normal-background-color: $-color-colorless--1 !default;
+$--button-normal-background-color-hover: $-color-colorless--1 !default;
+$--button-normal-background-color-active: $-color-colorless--1 !default;
+$--button-dashed-background-color: $-color-colorless--1 !default;
+$--button-disabled-background-color: $-color-colorless--2 !default;
+$--button-danger-background-color: $-color-colorless--1 !default;
+$--button-danger-background-color-hover: $-color-fightingRed--5 !default;
+$--button-danger-background-color-active: $-color-fightingRed--6 !default;
+$--button-link-background-color: $-color-colorless--1 !default;
+$--button-orange-background-color: $-color-vitalityYellow--5 !default;
+
+
+// 边框色
+$--button-primary-border-color: $-color-geekBlue--5 !default;
+$--button-primary-border-color-hover: $-color-geekBlue--5 !default;
+$--button-primary-border-color-active: $-color-geekBlue--6 !default;
+$--button-secondary-border-color: $-color-geekBlue--5 !default;
+$--button-secondary-border-color-hover: $-color-geekBlue--5 !default;
+$--button-secondary-border-color-active:$-color-geekBlue--7 !default;
+$--button-normal-border-color: $-color-colorless--4 !default;
+$--button-normal-border-color-hover: $-color-geekBlue--5 !default;
+$--button-normal-border-color-active: $-color-geekBlue--7 !default;
+$--button-dashed-border-color: $-color-colorless--4 !default;
+$--button-disabled-border-color:$-color-colorless--4 !default;
+$--button-danger-border-color: $-color-colorless--4 !default;
+$--button-danger-border-color-hover: $-color-fightingRed--5 !default;
+$--button-danger-border-color-active: $-color-fightingRed--4 !default;
+$--button-link-border-color: $-color-colorless--1 !default;
+
+
+// 按钮字体大小
+$--button-large-font-size:$--font-size-3;
+$--button-medium-font-size:$--font-size-2;
+$--button-small-font-size:$--font-size-2;

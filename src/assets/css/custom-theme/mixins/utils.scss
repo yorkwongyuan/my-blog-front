@@ -1,0 +1,126 @@
+// 垂直居中
+@mixin utils-vertical-middle {
+  $selector: &;
+
+  & * {
+    vertical-align: middle;
+  }
+
+  @at-root {
+    #{$selector}::after {
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+    }
+  }
+}
+
+// 清除浮动
+@mixin utils-clearfix {
+  $selector: &;
+
+  @at-root {
+
+    #{$selector}::after,
+    #{$selector}::before {
+      display: table;
+      content: ''
+    }
+
+    #{$selector}::after {
+      clear: both;
+    }
+  }
+}
+
+// 超过打省略号
+@mixin utils-ellipse {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 是否允许选中
+@mixin utils-select($value) {
+  -webkit-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+}
+
+@mixin one-px-bottom($color: #eee) {
+  position: relative;
+  &:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom:0;
+    left:0;
+    right:0;
+    border-bottom: 1px solid $color;
+    transform-origin: left bottom;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+  @media (-webkit-min-device-pixel-radio: 2) {
+    &::after{
+      width: 200%;
+      height: 200%;
+      transform: scaleY(.5)
+    }
+  }
+}
+
+@mixin one-px-top($color: #eee) {
+  position: relative;
+  &:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    top:0;
+    left:0;
+    right:0;
+    border-top: 1px solid $color;
+    transform-origin: left top;
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+  @media (-webkit-min-device-pixel-radio: 2) {
+    &::after{
+      width: 200%;
+      height: 200%;
+      transform: scaleY(.5)
+    }
+  }
+}
+
+/* 比one-px-top更细的线 */
+@mixin one-px-light-top($color: #eee) {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background: $color;
+    transform: scaleY(0.5);
+  }
+}
+
+/* 比one-px-bottom更细的线 */
+@mixin one-px-light-bottom($color: #eee) {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: $color;
+    transform: scaleY(0.5);
+  }
+}

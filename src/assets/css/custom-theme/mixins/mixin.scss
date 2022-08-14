@@ -1,0 +1,162 @@
+@import "./config.scss";
+@import './function.scss';
+@import '../common/var.scss';
+#bodyEl{
+  @supports(padding-bottom: constant(safe-area-inset-bottom)) {
+    #bodyEl{
+      padding-top: constant(safe-area-inset-top);   //为导航栏+状态栏的高度 88px
+      padding-left: constant(safe-area-inset-left);   //如果未竖屏时为0
+      padding-right: constant(safe-area-inset-right); //如果未竖屏时为0
+      padding-bottom: calc(constant(safe-area-inset-bottom))!important;//为底下圆弧的高度 34px
+    }
+  }
+  @supports(padding-bottom: env(safe-area-inset-bottom)) {
+    /* 兼容 iOS >= 11.2 */
+    #bodyEl{
+      padding-top: env(safe-area-inset-top);   //为导航栏+状态栏的高度 88px
+      padding-left: env(safe-area-inset-left);   //如果未竖屏时为0
+      padding-right: env(safe-area-inset-right); //如果未竖屏时为0
+      padding-bottom: calc(env(safe-area-inset-bottom))!important;//为底下圆弧的高度 34px
+    }
+  }
+}
+// 伪元素
+@mixin pseudo($selector) {
+  @at-root {
+    #{&+":"+$selector} {
+      @content;
+    }
+  }
+}
+
+@mixin extend-rule($name) {
+  @warn(#{'%shared-' + $name});
+}
+
+// 状态给父节点添加某个类，即某种状态
+@mixin when($status) {
+  @at-root {
+    &.#{$state-prefix + $status} {
+      @content;
+    }
+  }
+}
+
+// 滚动条样式
+@mixin scrollBar {
+  &::-webkit-scrollbar {
+    width: 6px;
+
+    &:horizontal {
+      width: 6px;
+    }
+
+    &-thumb {
+      border-radius: 5px;
+      width: 6px;
+      background: $-color-colorless--6;
+    }
+
+    &-corner {
+      background: $-color-colorless--1;
+    }
+
+    &-track {
+      background: $-color-colorless--1;
+    }
+
+    &-piece {
+      width: 6px;
+      background: $-color-colorless--1;
+    }
+  }
+}
+
+@mixin res($key, $map: $breakPoints) {
+  @if map-has-key($map, $key) {
+    @media screen and #{inspect(map-get($map,$key))} {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "undefined points `#{$map}`";
+  }
+}
+
+// placeholder
+@mixin placeholder {
+  &::placeholder {
+    @content;
+  }
+
+  ;
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+// BEM实现
+// 块
+@mixin b($block) {
+  $B: $block !global;
+
+  .#{$B} {
+    @content
+  }
+}
+
+;
+
+// 元素
+@mixin e($element) {
+  $selector: &;
+  $currentSelector: '';
+
+  @each $unit in $element {
+    $currentSelector: $currentSelector + '.'+ $B + $element-separator + $unit + ','
+  }
+
+  ;
+
+  @if isOk($selector) {
+    @at-root {
+      #{$selector} {
+        #{$currentSelector} {
+          @content;
+        }
+      }
+    }
+  }
+
+  @else {
+    @at-root {
+      #{$currentSelector} {
+        @content;
+      }
+    }
+  }
+}
+
+// 修饰符
+
+@mixin m($selector) {
+  $selector: inspect($selector);
+  $currentSelector: '';
+
+  @each $unit in $selector {
+    $currentSelector: $currentSelector + & + $modifier-separator + $unit + ','
+  }
+
+  @at-root {
+    #{$currentSelector} {
+      @content;
+    }
+  }
+
+}

@@ -1,0 +1,28 @@
+@import "../mixins/mixin.scss";
+
+@include b(status-label) {
+  @include e(normal) {
+    width: 44px;
+    height: 22px;
+    color: white;
+    font-size: 12px;
+    border-radius: 2px;
+    padding: 1px 4px;
+
+    @include when('gray') {
+      background: $-color-colorless--6;
+    }
+
+    @include when('green') {
+      background: $-color-lifeGreen--6;
+    }
+
+    @include when('red') {
+      background: $-color-fightingRed--6;
+    }
+
+    @include when('blue') {
+      background: $-color-geekBlue--6;
+    }
+  }
+}

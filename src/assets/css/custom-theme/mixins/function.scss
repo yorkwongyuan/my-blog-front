@@ -1,0 +1,55 @@
+@import "./config.scss";
+
+// 转为sass可以识别的字符形式
+@function toString($selector) {
+  $selector: inspect($selector);
+  @return $selector;
+}
+
+// 是否包含修饰符
+@function containModifier($selector) {
+  $selector: toString($selector);
+  $isContain: str-index($selector, $modifier-separator);
+
+  // 是否包含修饰符判断
+  @if($isContain) {
+    @return true;
+  }
+
+  @else {
+    @return false;
+  }
+}
+
+// 是否包含状态类
+@function containIs($selector) {
+  $selector: toString($selector);
+  $isContain: str-index($selector, '.'+ $state-prefix);
+
+  @if($isContain) {
+    @return true;
+  }
+
+  @else {
+    @return false;
+  }
+}
+
+// 是否包含伪元素
+@function containPseudoClass($selector) {
+  $selector: toString($selector);
+  $isContain: str-index($selector, ':');
+
+  @if($isContain) {
+    @return true;
+  }
+
+  @else {
+    @return false;
+  }
+}
+
+// 校验是否存在特殊嵌套
+@function isOk($selector) {
+  @return containIs($selector) or containModifier($selector) or containPseudoClass($selector)
+}
