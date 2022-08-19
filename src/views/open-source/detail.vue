@@ -1,6 +1,6 @@
 <style lang="scss">
 @import "@scss/custom-theme/mixins/mixin.scss";
-@include b(blog-detail) {
+@include b(open-source-detail) {
   height: 100%;
   overflow: hidden;
   background-color: #f0f0f0;
@@ -9,6 +9,8 @@
   background-size: 20px 20px;
   background-attachment: fixed;
   @include e(main) {
+    background-color: white;
+    text-align: left;
     padding: 16px;
     padding-top: 8px;
     width: 60vw;
@@ -16,30 +18,29 @@
     margin: 0 auto;
     overflow-y: auto;
     height: 100%;
-    background: rgba(255, 255, 255, .3);
   }
 }
 </style>
 <template>
-  <div class="blog-detail">
-    <main class="blog-detail__main">
-      <div v-html="content"></div>
-    </main>
+  <div class="open-source-detail">
+    <div v-html="content" class="open-source-detail__main"></div>
   </div>
 </template>
 <script>
 import MarkdownIt from 'markdown-it'
 export default {
-  name: 'blog-detail',
+  name: 'open-source-detail',
   data () {
     return {
       content: ''
     }
   },
   async mounted () {
-    let content = await import(`./${this.$route.query.id}.js`)
-    let md = new MarkdownIt()
-    this.content = md.render(content.default)
+    if (this.$route.query.id) {
+      let content = await import(`./${this.$route.query.id}.js`)
+      let md = new MarkdownIt()
+      this.content = md.render(content.default)
+    }
   }
 }
 </script>

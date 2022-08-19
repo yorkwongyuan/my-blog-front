@@ -25,6 +25,34 @@ const routes = [
     component: (resolve) => {
       require(['../views/blog/detail.vue'], resolve)
     }
+  },
+  {
+    path: '/open-source/index',
+    name: 'openSourceIndex',
+    component: (resolve) => {
+      require(['../views/open-source/index.vue'], resolve)
+    }
+  },
+  {
+    path: '/open-source/detail',
+    name: 'openSourceDetail',
+    component: (resolve) => {
+      require(['../views/open-source/detail.vue'], resolve)
+    }
+  },
+  {
+    path: '/aboutme',
+    name: 'aboutme',
+    component: (resolve) => {
+      require(['../views/aboutme/index.vue'], resolve)
+    }
+  },
+  {
+    path: '/tool',
+    name: 'tool',
+    component: (resolve) => {
+      require(['../views/tool.vue'], resolve)
+    }
   }
 ]
 Vue.use(VueRouter)
