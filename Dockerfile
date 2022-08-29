@@ -1,5 +1,5 @@
 # build stage
-FROM node:10 as build-stage
+FROM node:12 as build-stage
 
 # 表示谁来维护
 LABEL maintainer=631824375@qq.com
@@ -11,7 +11,7 @@ WORKDIR /app
 COPY . .
 
 # 淘宝加速源
-RUN yarn install --registry=https://registry.npm.taobao.org
+RUN npm install --registry=https://registry.npm.taobao.org
 
 # 构建
 RUN npm run build
