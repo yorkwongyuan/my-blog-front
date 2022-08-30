@@ -31,13 +31,14 @@
     }
   }
   @include e(left) {
-    color: #fff;
-    text-shadow: 
-      0 0 10px #0ebeff,
-      0 0 20px #0ebeff,
-      0 0 50px #0ebeff,
-      0 0 100px #0ebeff,
-      0 0 200px #0ebeff
+    // color: #fff;
+    color: black;
+    // text-shadow: 
+    //   0 0 10px #0ebeff,
+    //   0 0 20px #0ebeff,
+    //   0 0 50px #0ebeff,
+    //   0 0 100px #0ebeff,
+    //   0 0 200px #0ebeff
   }
   @include e(right) {
     display: flex;
