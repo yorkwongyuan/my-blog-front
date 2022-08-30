@@ -19,7 +19,7 @@ RUN npm run build
 # production stage
 FROM nginx:stable-alpine as production-stage
 
-COPY --from=build-stage /app/dist /www/client
+COPY --from=build-stage /app/dist /www/client/wyuan
 
 EXPOSE 80
 
