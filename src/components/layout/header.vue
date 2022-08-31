@@ -48,7 +48,7 @@
 <template>
   <div class="header">
     <div class="header__left">
-      前端技术冲浪
+      前端技术
     </div>
     <div class="header__right">
       <!-- <div class="header__item" @click="toBlog">技术</div>
