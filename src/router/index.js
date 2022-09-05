@@ -53,11 +53,18 @@ const routes = [
     component: (resolve) => {
       require(['../views/tool.vue'], resolve)
     }
+  },
+  {
+    path: '/sub-vue',
+    name: 'tool',
+    component: (resolve) => {
+      require(['../views/sub/index.vue'], resolve)
+    }
   }
 ]
 Vue.use(VueRouter)
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'history',
   routes
 })
 console.log('🚀 ~ file: index.js ~ line 20 ~ router', router)

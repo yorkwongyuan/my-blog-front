@@ -51,8 +51,8 @@
       计算机知识学习
     </div>
     <div class="header__right">
-      <!-- <div class="header__item" @click="toBlog">技术</div>
-      <div class="header__item" @click="noOpen">开源</div> -->
+      <div class="header__item" @click="toVue">vue</div>
+      <div class="header__item" @click="toReact">react</div>
     </div>
   </div>
 </template>
@@ -60,12 +60,12 @@
 export default {
   name: 'header-part',
   methods: {
-    toBlog () {
-      this.$router.push('/blog/lists')
+    toVue () {
+      this.$router.push('/sub-vue')
     },
-    noOpen () {
-      alert('暂未开放')
-    } 
+    toReact () {
+      this.$router.push('/sub-react')
+    }
   }
 }
 </script>

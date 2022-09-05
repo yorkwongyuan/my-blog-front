@@ -28,12 +28,14 @@ html, body {
 </template>
 
 <script>
+// import headerBar from '@components/layout/header.vue'
 import "@assets/css/reset.css";
 export default {
   name: 'App',
   methods: {
   },
   components: {
+    // headerBar
   }
 }
 </script>
