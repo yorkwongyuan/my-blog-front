@@ -48,7 +48,7 @@
 <template>
   <div class="header">
     <div class="header__left">
-      计算机知识学习
+      前端er的博客
     </div>
     <div class="header__right">
       <div class="header__item" @click="toVue">vue</div>
