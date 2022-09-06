@@ -21,6 +21,6 @@ FROM nginx:stable-alpine as production-stage
 
 COPY --from=build-stage /app/dist /www/client/wyuan
 
-EXPOSE 443
+EXPOSE 9960
 
 CMD ["nginx", "-g", "daemon off;"]
