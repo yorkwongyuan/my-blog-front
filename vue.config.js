@@ -24,9 +24,8 @@ module.exports = defineConfig({
         args[0].title = '前端技术'
         return args
       })
-    if (process.env.NODE_ENV === 'development') {
-      // config.devServer
-      //   .set('proxy', dev.proxyTable)
-    }
   },
+  devServer: {
+    proxy: 'http://localhost:4000'
+  }
 })

@@ -28,14 +28,14 @@ html, body {
 </template>
 
 <script>
-// import headerBar from '@components/layout/header.vue'
+import {login} from '@/api/login'
 import "@assets/css/reset.css";
 export default {
   name: 'App',
   methods: {
   },
-  components: {
-    // headerBar
+  mounted () {
+    login({name: 'jack', age: 12})
   }
 }
 </script>
